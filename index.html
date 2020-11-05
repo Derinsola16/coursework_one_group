@@ -39,6 +39,36 @@
 
 </div>
 
+<script type="text/javascript">
+	const lesson = new Vue({
+		el: '#app',
+		data: {
+			lesson: {
+				subject: "History",
+				location: "Chicago",
+				price: "$100",
+				image: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRL6G73lMGemPaEXgBaN4YkhLefNcYjcbotNw&usqp=CAU",
+				numberOfSpace: 10
+			},
+			cart: []
+		},
+		methods: {
+			addLesson() {
+				this.cart.push(this.lesson)
+			}
+		},
+		computed: {
+			cartItem: function() {
+				return this.lesson.numberOfSpace - this.cart.length
+			},
+			addSubject: function () {
+				return this.cartItem;
+			}
+		}
+
+	});
+</script>
+
 
 </body>
 
