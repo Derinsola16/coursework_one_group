@@ -24,16 +24,17 @@
 <div id="app" >
 
 	<div>
-		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRL6G73lMGemPaEXgBaN4YkhLefNcYjcbotNw&usqp=CAU" style="width: 30%; height: 30%;" />
+		<img v-bind:src="lesson.image" style="width: 30%; height: 30%;">
 		<div style="display: inline-block">
-			<h3>Subject: History</h3>
-			<h3>Location: Chicago</h3>
-			<h3>Price: $100</h3>
-			<h3>Item Remaining: 10</h3>
-			<h3>Cart Item: 0</h3>
+			<h3>Subject: {{lesson.subject}}</h3>
+			<h3>Location: {{lesson.location}}</h3>
+			<h3>Price: {{lesson.price}}</h3>
+			<h3>Item Remaining: {{cartItem}}</h3>
+			<h3>Cart Item: {{cart.length}}</h3>
 		</div>
 		<div>
-			<button  class="btn"> Add to Cart</button>
+			<button v-on:click='addLesson' class="btn"> Add to Cart</button>
+
 		</div>
 	</div>
 
@@ -60,9 +61,6 @@
 		computed: {
 			cartItem: function() {
 				return this.lesson.numberOfSpace - this.cart.length
-			},
-			addSubject: function () {
-				return this.cartItem;
 			}
 		}
 
